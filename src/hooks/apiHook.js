@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useRef } from "react";
 
-export const useAxios = (url, method = "get", params) => {
+export const useAxios = ({ url, method = "get" }) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
   const [loaded, setLoaded] = useState(false);
@@ -11,7 +11,7 @@ export const useAxios = (url, method = "get", params) => {
     controllerRef.current.abort();
   };
 
-  const run = async () => {
+  const run = async (params) => {
     try {
       const response = await axios.request({
         params,
