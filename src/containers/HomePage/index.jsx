@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Search } from "../../components";
+import { useAxios } from "../../hooks";
 
 const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams({
@@ -8,12 +9,16 @@ const HomePage = () => {
     type: "",
   });
 
+  const { run } = useAxios("https://api.jikan.moe/v4/anime", "get", {
+    search: 1,
+  });
+
   useEffect(() => {
     let isRunOnce = false;
 
     if (!isRunOnce) {
       const _searchParams = Object.fromEntries([...searchParams]);
-      console.log(_searchParams);
+      run();
     }
 
     return () => {
