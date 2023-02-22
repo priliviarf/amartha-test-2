@@ -1,22 +1,23 @@
 import { useState } from "react";
+import "./style.scss";
 
 function Search({ onSubmit }) {
   const initialValue = {
-    search: "",
+    q: "",
     type: "",
   };
   const [formValue, setFormValue] = useState(initialValue);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="search" onChange={handleChange} />
+    <form className="search-form" onSubmit={handleSubmit}>
+      <input name="q" placeholder="" onChange={handleChange} />
 
       <select name="type" onChange={handleChange}>
         <option value="1">One</option>
         <option value="2">Two</option>
       </select>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Search</button>
     </form>
   );
 

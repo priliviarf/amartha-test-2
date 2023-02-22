@@ -1,18 +1,15 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search } from "../../components";
+import { List, Search } from "../../components";
 import { useHomePageService } from "./homepage.api";
 
 const HomePage = () => {
-  const [searchParams, setSearchParams] = useSearchParams({
-    search: "",
-    type: "",
-  });
+  const [searchParams, setSearchParams] = useSearchParams({});
 
   const { getAnimes } = useHomePageService();
+  const { run: _run, data, loading } = getAnimes;
 
   const run = (params) => {
-    const { run: _run } = getAnimes;
     return _run(params);
   };
 
@@ -33,6 +30,8 @@ const HomePage = () => {
     <div className="home">
       <h2>GetAnime</h2>
       <Search onSubmit={setSearchParams} />
+
+      <div>{loading ? "Loading..." : <List data={data} />}</div>
     </div>
   );
 };
