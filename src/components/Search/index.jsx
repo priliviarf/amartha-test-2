@@ -1,6 +1,14 @@
 import { useState } from "react";
 import "./style.scss";
 
+/**
+ *
+ * @typedef SearchProps
+ * @property {() => void} onSubmit
+ *
+ * @param {SearchProps} props
+ * @returns
+ */
 function Search({ onSubmit }) {
   const initialValue = {
     q: "",

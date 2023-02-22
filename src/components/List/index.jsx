@@ -3,6 +3,15 @@ import Pagination from "../Pagination";
 
 import "./style.scss";
 
+/**
+ *
+ * @typedef ListProps
+ * @property {Object} data
+ * @property {() => void} updatePage
+ *
+ * @param {ListProps} props
+ * @returns
+ */
 function List({ data = {}, updatePage }) {
   const { data: dataSource = [], pagination } = data;
 
