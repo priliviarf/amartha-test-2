@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useRef } from "react";
 import { app } from "../configuration";
 
-export const useAxios = ({ url = "", method = "get" } = {}) => {
+export const useAxios = ({ url = "", method = "get", payload } = {}) => {
   const [data, setData] = useState({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export const useAxios = ({ url = "", method = "get" } = {}) => {
     controllerRef.current.abort();
   };
 
-  const run = async (params) => {
+  const run = async (params = {}) => {
     // remove null value
     Object.keys(params).forEach((key) =>
       params[key] === undefined || params[key] === "" || params[key] === null
@@ -26,6 +26,7 @@ export const useAxios = ({ url = "", method = "get" } = {}) => {
         params,
         signal: controllerRef.current.signal,
         method,
+        payload,
         url: app.baseUrl + url,
       });
 

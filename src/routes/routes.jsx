@@ -1,7 +1,7 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 
-import { HomePage, MainLayout, NotFound } from "../containers";
+import { DetailPage, HomePage, MainLayout, NotFoundPage } from "../containers";
 import paths from "./paths";
 
 export default function Routes() {
@@ -10,7 +10,8 @@ export default function Routes() {
       element: <MainLayout />,
       children: [
         { path: paths.home, element: <HomePage /> },
-        { path: paths.nomatch, element: <NotFound /> },
+        { path: paths.detail, element: <DetailPage /> },
+        { path: paths.nomatch, element: <NotFoundPage /> },
       ],
     },
   ]);

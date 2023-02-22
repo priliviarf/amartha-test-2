@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { List, Search } from "../../components";
-import { useHomePageService } from "./homepage.api";
+
+import { List, Loading, Search } from "../../components";
+
+import { useHomePageService } from "./homePage.api";
 
 const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams({});
@@ -31,11 +33,10 @@ const HomePage = () => {
 
   return (
     <div className="home">
-      <h2>GetAnime</h2>
       <Search onSubmit={setSearchParams} />
 
       <div>
-        {loading ? "Loading..." : <List data={data} updatePage={updatePage} />}
+        {loading ? <Loading /> : <List data={data} updatePage={updatePage} />}
       </div>
     </div>
   );
