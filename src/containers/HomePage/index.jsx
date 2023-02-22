@@ -16,7 +16,10 @@ const HomePage = () => {
   };
 
   const updatePage = (page) =>
-    setSearchParams((prevState) => ({ ...prevState, page }));
+    setSearchParams(() => {
+      const prev = Object.fromEntries([...searchParams]);
+      return { ...prev, page };
+    });
 
   useEffect(() => {
     let isRunOnce = false;

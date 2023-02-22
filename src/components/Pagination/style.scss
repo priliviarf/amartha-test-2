@@ -1,6 +1,7 @@
 .pagination-container {
   display: flex;
   list-style-type: none;
+  justify-content: center;
 
   .pagination-item {
     padding: 0 12px;
@@ -38,8 +39,8 @@
         display: inline-block;
         width: 0.4em;
         height: 0.4em;
-        border-right: 0.12em solid white;
-        border-top: 0.12em solid white;
+        border-right: 0.12em solid #fff;
+        border-top: 0.12em solid #fff;
       }
 
       &.left {
@@ -55,8 +56,8 @@
       pointer-events: none;
 
       .arrow::before {
-        border-right: 0.12em solid grey;
-        border-top: 0.12em solid grey;
+        border-right: 0.12em solid #666;
+        border-top: 0.12em solid #666;
       }
 
       &:hover {

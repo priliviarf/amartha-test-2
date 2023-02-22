@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import paths from "../../routes/paths";
 import Pagination from "../Pagination";
 
 import "./style.scss";
@@ -13,7 +12,12 @@ function List({ data = {}, updatePage }) {
       <div className="list-grid">
         {dataSource.map((anime) => (
           <Link key={anime.mal_id} to={`detail/${anime.mal_id}`}>
-            <div className="list-grid-item">{anime.title}</div>
+            <div className="list-grid-item">
+              <img
+                className="anime-img"
+                src={anime.images.jpg.large_image_url}
+              />
+            </div>
           </Link>
         ))}
       </div>

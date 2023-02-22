@@ -1,18 +1,36 @@
 .list-grid {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 1rem auto;
   display: grid;
   gap: 1rem;
+}
+
+.list-grid-item {
+  height: auto;
+  width: 100%;
+
+  .anime-img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+  }
 }
 
 @media (min-width: 600px) {
   .list-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .list-grid-item {
+    height: 100%;
+    width: 100%;
+    min-height: 250px;
+  }
 }
 
 @media (min-width: 900px) {
   .list-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
