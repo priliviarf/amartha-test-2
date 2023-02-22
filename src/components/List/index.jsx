@@ -6,7 +6,13 @@ import "./style.scss";
 function List({ data = {}, updatePage }) {
   const { data: dataSource = [], pagination } = data;
 
-  if (!dataSource?.length) return null;
+  if (!dataSource?.length)
+    return (
+      <div>
+        <h3>We couldn't find anything</h3>
+        <p>Please try another search keywords</p>
+      </div>
+    );
   return (
     <>
       <div className="list-grid">

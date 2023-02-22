@@ -5,21 +5,62 @@ function Search({ onSubmit }) {
   const initialValue = {
     q: "",
     type: "",
+    status: "",
   };
   const [formValue, setFormValue] = useState(initialValue);
 
+  const types = [
+    { label: "All Type", value: "all" },
+    { label: "TV", value: "tv" },
+    { label: "Movie", value: "movie" },
+    { label: "Original Video Animation", value: "ova" },
+    { label: "Special", value: "special" },
+    { label: "Originial Net Animation", value: "ona" },
+    { label: "Music", value: "music" },
+  ];
+
+  const status = [
+    { label: "All Status", value: "all" },
+    { label: "Airing", value: "airing" },
+    { label: "Complete", value: "complete" },
+    { label: "Upcoming", value: "upcoming" },
+  ];
+
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <input name="q" placeholder="" onChange={handleChange} />
+      <div className="fields">
+        <input name="q" placeholder="Title" onChange={handleChange} />
 
-      <select name="type" onChange={handleChange}>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-      </select>
+        <select name="type" onChange={handleChange}>
+          {types.map(({ value, label }) => (
+            <option value={value} key={value}>
+              {label}
+            </option>
+          ))}
+        </select>
 
-      <button type="submit">Search</button>
+        <select name="status" onChange={handleChange}>
+          {status.map(({ value, label }) => (
+            <option value={value} key={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="buttons">
+        <button type="submit">Search</button>
+        <button type="reset" onClick={handleReset}>
+          Reset
+        </button>
+      </div>
     </form>
   );
+
+  function handleReset() {
+    setFormValue(initialValue);
+    onSubmit({});
+  }
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -33,6 +74,7 @@ function Search({ onSubmit }) {
 
     // removed null/undefined value
     Object.keys(submittedValue).forEach((key) =>
+      submittedValue[key] === "all" ||
       submittedValue[key] === undefined ||
       submittedValue[key] === "" ||
       submittedValue[key] === null

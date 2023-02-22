@@ -1,5 +1,5 @@
 function Loading() {
-  return <div>Loading...</div>;
+  return <div style={{ margin: "1rem" }}>Loading...</div>;
 }
 
 export default Loading;

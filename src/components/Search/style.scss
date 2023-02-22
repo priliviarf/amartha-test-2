@@ -1,8 +1,43 @@
 .search-form {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
 
+  .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buttons {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  input,
   select {
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 0.6em 1.2em;
     width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  .search-form {
+    .fields {
+      flex-direction: row;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .search-form {
+    max-width: 900px;
+    margin: 0 auto;
+    grid-template-columns: 2fr 1fr;
   }
 }
