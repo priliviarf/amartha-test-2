@@ -13,6 +13,9 @@ const HomePage = () => {
     return _run(params);
   };
 
+  const updatePage = (page) =>
+    setSearchParams((prevState) => ({ ...prevState, page }));
+
   useEffect(() => {
     let isRunOnce = false;
 
@@ -31,7 +34,9 @@ const HomePage = () => {
       <h2>GetAnime</h2>
       <Search onSubmit={setSearchParams} />
 
-      <div>{loading ? "Loading..." : <List data={data} />}</div>
+      <div>
+        {loading ? "Loading..." : <List data={data} updatePage={updatePage} />}
+      </div>
     </div>
   );
 };
