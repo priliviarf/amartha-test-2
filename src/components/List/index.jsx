@@ -23,6 +23,10 @@ function List({ data = {}, updatePage }) {
                 className="anime-img"
                 src={anime.images.jpg.large_image_url}
               />
+
+              <div className="overlay">
+                <p className="title">{anime.title}</p>
+              </div>
             </div>
           </Link>
         ))}
