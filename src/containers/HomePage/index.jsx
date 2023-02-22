@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 
 import { List, Loading, Search } from "../../components";
 
-import { useHomePageService } from "./homePage.api";
+import { useHomePageService } from "./homePageApi";
 
 const HomePage = () => {
   const [searchParams, setSearchParams] = useSearchParams({});

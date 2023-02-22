@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Loading } from "../../components";
 import paths from "../../routes/paths";
 
-import { useDetailPageService } from "./detailPage.api";
+import { useDetailPageService } from "./detailPageApi";
 import "./style.scss";
 
 function DetailPage() {
